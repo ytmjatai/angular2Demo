@@ -4,13 +4,17 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     moduleId: module.id,
     selector: 'user-edit',
-    templateUrl: 'user-edit.html',
+    templateUrl: 'user-edit.component.html',
 })
 export class UserEditComponent {
-
+    user:any;
     constructor(
-        public editModal: NgbActiveModal,
+        public modal: NgbActiveModal
     ) {
+    }
+    save(){
+
+        console.log(this.user);
     }
 
 

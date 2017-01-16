@@ -6,7 +6,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     moduleId: module.id,
     selector: 'users',
-    templateUrl: 'users.html'
+    templateUrl: 'users.component.html'
 })
 export class UsersComponent {
 
