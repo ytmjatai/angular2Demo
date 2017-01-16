@@ -1,0 +1,18 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="container">
+            <ul class="navbar-nav">
+
+                <li *ngFor="let nav of navs" 
+                    routerLink="{{ nav.url }}" 
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    routerLink 
+                    class="nav-item">
+                    <a class="nav-link" href="{{ nav.url }}">{{ nav.title }}</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
