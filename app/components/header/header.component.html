@@ -2,14 +2,18 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="container">
             <ul class="navbar-nav">
-
+                <!--
+                RouterLinkActive 指令会基于当前的 RouterState 对象
+                来为激活的 RouterLink 添加 'class'
+                [routerLinkActiveOptions] 为精确匹配
+                -->
                 <li *ngFor="let nav of navs" 
                     routerLink="{{ nav.url }}" 
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     routerLink 
                     class="nav-item">
-                    <a class="nav-link" href="{{ nav.url }}">{{ nav.title }}</a>
+                    <a class="nav-link" routerLink="{{ nav.url }}">{{ nav.title }}</a>
                 </li>
 
             </ul>

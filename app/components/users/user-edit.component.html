@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">Eidt - {{user.name}}</h4>
+    <h4 class="modal-title">{{ title }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.close()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -9,17 +9,18 @@
         <div class="form-group row">
             <div class="col-sm-6">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" 
+                <input #box type="text" class="form-control" id="name" 
                        placeholder="Enter user name" 
-                       [value]="user.name" 
-                       (input)="user.name=$event.target.value">
+                       [(ngModel)]="user.name" 
+                       name="user.name"
+                       >
             </div>
             <div class="col-sm-6">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" 
                        aria-describedby="emailHelp" placeholder="Enter email" 
-                       [value]="user.email" 
-                       (input)="user.email=$event.target.value">
+                       [(ngModel)]="user.email"
+                       name="user.email">
             </div>
         </div>
 
@@ -28,15 +29,15 @@
                 <label for="Phone">Phone</label>
                 <input class="form-control" type="tel" 
                        placeholder="Enter phone number" id="Phone"
-                       [value]="user.phone" 
-                       (input)="user.phone=$event.target.value">
+                        [(ngModel)]="user.phone"
+                       name="user.phone">
             </div>
             <div class="col-sm-6">
                 <label for="des">Description</label>
                 <input type="text" class="form-control" id="des" 
                        placeholder="Enter description"
-                       [value]="user.des" 
-                       (input)="user.des=$event.target.value">
+                       [(ngModel)]="user.des"
+                       name="user.des">
             </div>
         </div>
 

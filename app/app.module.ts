@@ -1,41 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { UsersComponent } from './users/users.component';
-import { UserEditComponent } from './users/user-edit.component';
-import { DocsComponent } from './docs/docs.component';
-import { MainComponent } from './main/main.component';
+import { AppRoutingModule } from './modules/app-routing.module'
 
+import { AppComponent } from './components/app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserEditComponent } from './components/users/user-edit.component';
+import { DocsComponent } from './components/docs/docs.component';
 
-
-const appRoutes: Routes = [
-  { path: 'users', component: UsersComponent },
-  { path: 'docs', component: DocsComponent },
-  { path: '', component: MainComponent },
-]
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { UserService } from './services/users.service';
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(appRoutes),
-    FormsModule
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
+
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
+    MainComponent,
     UsersComponent,
     UserEditComponent,
-    DocsComponent,
-    MainComponent,
+    DocsComponent
   ],
   entryComponents: [UserEditComponent],
+  providers: [UserService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
