@@ -12,7 +12,7 @@ import { User } from './../../models/user';
 export class UsersComponent implements OnInit {
     users: User[];
     constructor(
-        private modalService: NgbModal,
+        private ngbModal: NgbModal,
         private userService: UserService
     ) {
     }
@@ -37,10 +37,11 @@ export class UsersComponent implements OnInit {
 
 
     edit(user: any) {
-        
-        let edit = this.modalService.open(UserEditComponent, {
+        // 打开模态框
+        let edit = this.ngbModal.open(UserEditComponent, {
             size: 'lg'
         });
+        // 传递数据级模态框
         edit.componentInstance.user = user;
 
     }

@@ -16,27 +16,33 @@ export class UserEditComponent implements OnInit {
     title: string;
 
     constructor(
-        public modal: NgbActiveModal,
+        public ngbActiveModal: NgbActiveModal,
         private http: Http,
-        private userService: UserService
+        private userService: UserService,
+        
     ) {
 
     }
 
     ngOnInit(): void {
+        // 初始化组件，this.user为UserComponent传进来的user
         this.title = 'Edit - ' + this.user.name;
-        this.loadData(this.user.id)
+        // 调用加载数据方法
+        this.loadData(this.user.id);
     }
 
     loadData(id: number) {
+        // 根据传入id 加载数据
         this.userService.getUser(id).then(
             res => this.user = res
         )
     }
 
     save(): void {
+        // 更新后台数据
         this.userService.update(this.user);
-        this.modal.close();
+        // 关闭模态框
+        this.ngbActiveModal.close();
     }
 
 
